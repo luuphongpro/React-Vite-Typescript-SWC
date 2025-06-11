@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+.active {
+    @apply bg-blue-500 text-white;
+}
+.radius-li li:first-child {
+    @apply rounded-l-sm
+}
+
+.radius-li li:last-child {
+    @apply rounded-r-sm
+}

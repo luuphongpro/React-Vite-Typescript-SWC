@@ -9,7 +9,7 @@ interface PaginationProps {
 const Pagination = React.memo((props: PaginationProps) => {
     const { currentPage, totalPages, handleClickPagination } = props;
     let items = [];
-    for (let number = currentPage - 2; number <= currentPage + 2; number++) {
+    for (let number = currentPage - 3; number <= currentPage + 3; number++) {
         if (number < 1 || number > totalPages) continue;
         items.push(
             <li
@@ -23,7 +23,13 @@ const Pagination = React.memo((props: PaginationProps) => {
     }
     return (
         <ul className='flex justify-center my-5 radius-li cursor-pointer'>
+            <li className={'px-3 py-1.5 border mx-0.5 border-gray-400'+ (currentPage==1?' pointer-events-none opacity-50 cursor-default ':' cursor-pointer' ) }
+                onClick={() => currentPage== 1 ? null : handleClickPagination(currentPage-1)}
+            >Previous</li>
             {items}
+            <li className={'px-3 py-1.5 border mx-0.5 border-gray-400 '+ (currentPage==totalPages?' pointer-events-none opacity-50 cursor-default ':' cursor-pointer' ) }
+                onClick={() => currentPage== totalPages ? null : handleClickPagination(currentPage+1)}
+            >Next</li>
         </ul>
     )
 })

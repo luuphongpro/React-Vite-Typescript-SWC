@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import useFashionStore from "../src/store/useFashionStore";
-import axios from "axios";
+import asioxInstance from "../src/config/axiosInstance";
 import { useQuery } from '@tanstack/react-query'
 
 const fetchFashionData = async () => {
-    const res = await axios.get('https://6847b60fec44b9f3493deebd.mockapi.io/api/fashion/item');
+    const res = await asioxInstance.get('/fashion/item');
     return res.data;
 };
 

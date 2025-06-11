@@ -4,17 +4,22 @@ import Pagination from './component/Pagination';
 import useFashionStore from './store/useFashionStore';
 import usePagination from '../hook/usePagination';
 import useProduce from '../hook/useProduce';
+import Loading from './component/Loading';
 function App() {
   const currenPage = useFashionStore((state) => state.currentPage);
   const setCurrenPage = useFashionStore((state) => state.setCurrentPage);
   const data = usePagination();
-  useProduce();
+  const {isLoading}=useProduce();
   const totalPages = useFashionStore((state) => state.totalPages);
-  
+
   const handleClickPagination = useCallback((page: number) => {
     setCurrenPage(page);
   }, [currenPage]);
 
+  if (isLoading) {
+    return <Loading />
+  }
+  
   return (
     <>
       <div className='flex flex-wrap justify-center mx-auto w-5/6' >

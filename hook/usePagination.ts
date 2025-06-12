@@ -1,9 +1,8 @@
-import useFashionStore from '../src/store/useFashionStore';
-
+import useProduceStore from '../src/store/useProductStore';
+import {numberOfPerPage} from '../src/config/setting'
 const usePagination = () => {
-    const numberOfPerPage = 8;
-    const currentPage = useFashionStore((state) => state.currentPage);
-    const data = useFashionStore((state) => state.data);
+    const currentPage = useProduceStore((state) => state.currentPage);
+    const data = useProduceStore((state) => state.data);
 
     const paginatedData = data.slice(
         (currentPage - 1) * numberOfPerPage,

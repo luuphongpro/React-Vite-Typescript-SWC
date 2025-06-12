@@ -1,13 +1,16 @@
 import React from "react";
-
+import useProductStore from "../store/useProductStore";
 interface PaginationProps {
     currentPage: number;
     totalPages: number;
-    handleClickPagination: (page: number) => void;
 }
 
 const Pagination = React.memo((props: PaginationProps) => {
-    const { currentPage, totalPages, handleClickPagination } = props;
+    const setCurrentPage = useProductStore((state) => state.setCurrentPage)
+    const handleClickPagination = (page:number) =>{
+        setCurrentPage(page)
+    }
+    const { currentPage, totalPages } = props;
     let items = [];
     for (let number = currentPage - 3; number <= currentPage + 3; number++) {
         if (number < 1 || number > totalPages) continue;

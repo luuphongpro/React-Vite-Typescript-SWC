@@ -1,5 +1,14 @@
+import type { Itemcart } from "../../types/product"
 
-const ItemCart = (props) => {
+interface ItemCartProps {
+    item: Itemcart;
+    index: number;
+    listCart: Itemcart[];
+    setListCart: (list: any[]) => void;
+    setIsSelectAll: (value: boolean) => void;
+    setActiveButton: (value: boolean) => void;
+}
+const ItemCart = (props:ItemCartProps) => {
     const { item, index, listCart, setListCart, setIsSelectAll,setActiveButton } = props;
 
     const increaseQuantity = (index: number) => {

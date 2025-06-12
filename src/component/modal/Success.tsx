@@ -1,5 +1,9 @@
 import successImage from '../../assets/success.png';
-const Success = (props) => {
+interface SuccessProps {
+    showSuccess: boolean;
+    setShowSuccess: (show: boolean) => void;
+}   
+const Success = (props:SuccessProps) => {
     const { showSuccess, setShowSuccess } = props;
     if (showSuccess) {
         setTimeout(() => {

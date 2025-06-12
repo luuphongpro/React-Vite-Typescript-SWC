@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 interface HeaderCartProps {
     listCart: any[];
     setListCart: (list: any[]) => void;

@@ -36,7 +36,7 @@ const Cart = () => {
                             setActiveButton={setActiveButton}
                         />
 
-                        {listCart.map((item: any, index) => (
+                        {listCart.map((item: Itemcart, index) => (
                             <ItemCart
                                 key={item.id}
                                 item={item}

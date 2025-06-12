@@ -1,11 +1,11 @@
 import { create } from 'zustand';
 import { fetchAddCart } from '../service/Cart';
-import type { Product } from '../types/product';
+import type { Itemcart } from '../types/product';
 
 interface CartState {
-    listCart: Product[];
+    listCart: Itemcart[];
     purchaseList: any[];
-    setListCart: (list: Product[]) => void;
+    setListCart: (list: Itemcart[]) => void;
     setPurchaseList: (list: any[]) => void;
     handlerOrder: (userId: number) => Promise<void>;
 }

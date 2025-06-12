@@ -6,6 +6,7 @@ import useProductDetail from '../../../hook/useProductDetail';
 import { useParams } from 'react-router-dom';
 import Loading from '../Loading';
 
+
 const ProductDetail = () => {
     const {id}= useParams()
     const paramsId = id ? parseInt(id) : 0;
@@ -47,7 +48,7 @@ const ProductDetail = () => {
                             <div className=' text-xl'>{product.title}</div>
                             <div className=' '>Brand: {product.brand}</div>
                             <div className=' '>Availability: {product.availabilityStatus}</div>
-                            <div className='  '>Tag: <span className='text-blue-500'>{product?.tags?.map(item => ('#' + item))}</span> </div>
+                            <div className='  '>Tag: <span className='text-blue-500'>{product?.tags?.map((item:string)=> ('#' + item))}</span> </div>
                         </div>
                         <div className='price mx-5 text-3xl font-bold text-red-600'>
                             ${(product.price - (product.price * product.discountPercentage / 100)).toFixed(2)}

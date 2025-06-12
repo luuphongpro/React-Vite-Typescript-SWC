@@ -1,18 +1,18 @@
 import { useState } from "react";
 import useAuthStore from "../../store/useAuthStore";
 import useCartStore from "../../store/useCartStore";
-import type { Product } from "../../types/product";
+import type { Itemcart } from "../../types/product";
 import HeaderCart from "./HeaderCart";
 import ItemCart from "./ItemCart";
 // ...
 
 const Cart = () => {
     const { id } = useAuthStore();
-    const { listCart, setListCart, purchaseList, handlerOrder } = useCartStore();
+    const { listCart, setListCart, handlerOrder } = useCartStore();
     const [isSelectAll, setIsSelectAll] = useState(listCart.every(item => item.isBuy));
     const [activeButton, setActiveButton] = useState(listCart.some(item => item.isBuy));
 
-    const totalPrice = listCart.reduce((total: number, item: Product) => {
+    const totalPrice = listCart.reduce((total: number, item: Itemcart) => {
         if (item.isBuy) {
             const itemPrice = item.price - (item.price * item.discountPercentage / 100);
             return total + (itemPrice * item.quantity);

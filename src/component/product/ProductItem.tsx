@@ -1,15 +1,17 @@
-import type { Product } from "../../types/product";
+import type { Itemcart, Product } from "../../types/product";
 import useAuthStore from "../../store/useAuthStore";
 import { useNavigate } from "react-router-dom";
 import useCartStore from "../../store/useCartStore";
-
-const ProductItem = (props: Product) => {
+interface ProductItemProps extends Product {
+    setShowSuccess: (show: boolean) => void;
+}
+const ProductItem = (props:ProductItemProps) => {
     const { id, title, thumbnail, price, discountPercentage, brand, setShowSuccess } = props;
     const { isLogin } = useAuthStore()
     const navigator = useNavigate();
     const { listCart, setListCart } = useCartStore()
     const handleAddCart = (id: number, quantity: number = 1) => {
-        const index = listCart.findIndex((item: Product) => item.id === id)
+        const index = listCart.findIndex((item: Itemcart) => item.id === id)
         if (index != -1) {
             listCart[index].quantity += quantity;
             setListCart([...listCart])

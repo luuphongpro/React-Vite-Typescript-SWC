@@ -1,6 +1,13 @@
 import { useState } from "react";
 
-const HeaderCart = (props) => {
+interface HeaderCartProps {
+    listCart: any[];
+    setListCart: (list: any[]) => void;
+    isSelectAll: boolean;
+    setIsSelectAll: (value: boolean) => void;
+    setActiveButton: (value: boolean) => void;
+}
+const HeaderCart = (props:HeaderCartProps) => {
     const { listCart, setListCart,isSelectAll,setIsSelectAll,setActiveButton } = props;
     
     const handlerSelectAll = () => {

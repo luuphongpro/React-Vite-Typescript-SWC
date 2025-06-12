@@ -8,10 +8,13 @@ export interface Product {
     discountPercentage: number;
     rating: number;
     stock: number;
-    isNew?: boolean;
     brand: string;
     category?: string;
-    quantity?: number;
+}
+export interface Itemcart extends Product {
+    total?: number;
+    quantity: number;
+    isBuy: boolean;
 }
 export interface Cart {
     id: number;

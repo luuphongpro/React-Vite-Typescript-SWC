@@ -1,7 +1,8 @@
 import { useState } from "react";
+import type { Itemcart, Product } from "../types/product";
 
 const Purchase = () => {
-    const [listPurchare, setListPurchase] = useState(JSON.parse(localStorage.getItem('purchase') || '[]'));
+    const [listPurchare] = useState(JSON.parse(localStorage.getItem('purchase') || '[]'));
     return (
         <div className="bg-gray-200">
             <div className="w-4/5 mx-auto">
@@ -20,7 +21,7 @@ const Purchase = () => {
 
                         {listPurchare.map((items: any) => (
                             <>
-                                {items.products.map(item => (
+                                {items.products.map((item:Itemcart) => (
                                     <div
                                         className="flex flex-row items-center justify-between gap-2 border border-gray-500 rounded-2xl mt-2 bg-white"
                                         key={item.id}

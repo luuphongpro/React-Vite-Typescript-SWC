@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Itemcart, Product } from "../types/product";
+import type { Itemcart } from "../types/product";
 
 const Purchase = () => {
     const [listPurchare] = useState(JSON.parse(localStorage.getItem('purchase') || '[]'));

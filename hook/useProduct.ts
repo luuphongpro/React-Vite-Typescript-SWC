@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import useProductStore from "../src/store/useProductStore";
 import axiosInstance from "../src/config/axiosInstance";
 import { useQuery } from "@tanstack/react-query";

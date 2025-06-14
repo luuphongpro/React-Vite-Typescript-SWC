@@ -8,6 +8,3 @@ export const fetchAddCart=async(id:number,products:any) =>{
     return data.data;
 }
 
-
-
- 

@@ -1,0 +1,29 @@
+{
+    "header": {
+        "product": "Product",
+        "login": "Login",
+        "register": "Register",
+        "hello": "Hello",
+        "category": "Category",
+        "allProduct": "All product",
+        "search": "Search",
+        "language": "Language",
+        "theme": "Theme",
+        "cart": "Cart",
+        "purchaseHistory":"Purchase History",
+        "logout": "Logout",
+        "typeToSearch":"Type To Search...",
+        "light": "Light",
+        "dark": "Dark"
+    },
+    "product": {
+        "seeDetail": "See detail",
+        "bigSale": "Big sale",
+        "brand": "Brand",
+        "availability": "Availability",
+        "tag": "Tag",
+        "buy": "Buy",
+        "stock": "Stock",
+        "description":"Description"
+    }
+}

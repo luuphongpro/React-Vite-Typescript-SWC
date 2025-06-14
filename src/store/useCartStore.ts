@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { fetchAddCart } from '../service/Cart';
 import type { Itemcart } from '../types/product';
 
 interface CartState {
@@ -24,27 +23,14 @@ const useCartStore = create<CartState>((set, get) => ({
         set({ purchaseList: list });
     },
 
-    handlerOrder: async (userId) => {
+    handlerOrder: async () => {
         const { listCart, purchaseList, setListCart, setPurchaseList } = get();
-        const data = listCart
-            .filter((item) => item.isBuy)
-            .map((item) => ({
-                id: item.id,
-                quantity: item.quantity,
-            }));
-
-        try {
-            const res = await fetchAddCart(userId, data);
-            const updatedList = listCart.filter((item) => !item.isBuy);
-
-            alert('Order placed successfully!');
-            const newPurchaseList = [...purchaseList, res];
-
-            setListCart(updatedList);
-            setPurchaseList(newPurchaseList);
-        } catch (error) {
-            console.error('Error placing order:', error);
-        }
+        const purchaseItems = listCart.filter((item) => item.isBuy);
+        const updatedList = listCart.filter((item) => !item.isBuy);
+        
+        const newPurchaseList = [...purchaseList, purchaseItems];
+        setListCart(updatedList);
+        setPurchaseList(newPurchaseList);
     },
 }));
 

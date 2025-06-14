@@ -1,52 +1,44 @@
-import type { Itemcart, Product } from "../../types/product";
-import useAuthStore from "../../store/useAuthStore";
+import type { Product } from "../../types/product";
 import { useNavigate } from "react-router-dom";
-import useCartStore from "../../store/useCartStore";
+import { Button } from 'antd';
+import { useTranslation } from "react-i18next";
+
 interface ProductItemProps extends Product {
     setShowSuccess: (show: boolean) => void;
 }
-const ProductItem = (props:ProductItemProps) => {
-    const { id, title, thumbnail, price, discountPercentage, brand, setShowSuccess } = props;
-    const { isLogin } = useAuthStore()
+const ProductItem = (props: ProductItemProps) => {
+    const { t } = useTranslation();
+    const { id, title, thumbnail, price, discountPercentage, brand } = props;
     const navigator = useNavigate();
-    const { listCart, setListCart } = useCartStore()
-    const handleAddCart = (id: number, quantity: number = 1) => {
-        const index = listCart.findIndex((item: Itemcart) => item.id === id)
-        if (index != -1) {
-            listCart[index].quantity += quantity;
-            setListCart([...listCart])
-        }
-        else {
-            listCart.push({ ...props, quantity: quantity, isBuy: false })
-            setListCart([...listCart])
-
-        }
-        setShowSuccess(true);
-    }
     return (
-        <div className='sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)] min-h-69 flex flex-col justify-between gap-3 border border-gray-200 shadow-md' key={id}
-
+        <div className='sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)] min-h-69 flex flex-col justify-between gap-3 border border-gray-200 shadow-md p-5   rounded-lg' key={id}
         >
-            <div className='relative'>
+            <div className='min-h-50 group relative  '
+                
+            >
                 <img
                     src={thumbnail}
-                    className='rounded-lg transition-transform duration-300 hover:scale-110'
+                    className='rounded-lg transition-transform duration-300 group-hover:scale-105 group-hover:opacity-40 w-full object-cover '
                     alt={title}
-                    onClick={() => navigator(`/product/${id}`)}
-
                 />
+
+                <div className="absolute inset-0 flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity duration-300 bg-black/10 text-white font-semibold rounded-lg z-1"
+
+                >
+                    <Button type="primary" className="cursor-pointer"
+                        onClick={() => navigator(`/product/${id}`)}
+                    >{t('product.seeDetail')}</Button>
+                </div>
+
                 {discountPercentage && (
-                    <span className='px-2 py-1 bg-red-500 text-[12px] text-white font-medium absolute left-0 bottom-5 rounded-r-lg'>Big sale</span>
+                    <span className='px-2 py-1 bg-red-500 text-[12px] text-white font-medium absolute left-0 bottom-10 rounded-r-lg'>
+                         {t('product.bigSale')}
+                    </span>
                 )}
-                {isLogin &&
-                    (
-                        <span className='px-2 py-1 bg-blue-500 text-[12px] text-white font-medium absolute right-0 bottom-5 rounded-l-lg'
-                            onClick={() => handleAddCart(id, 1,)}
-                        >Add cart</span>
-                    )
-                }
+
             </div>
-            <div className='grid grid-cols-2 gap-2'>
+
+            <div className='grid [grid-template-columns:2fr_1fr] gap-2 dark:text-white/50'>
                 <div className='justify-self-start font-bold'>{title}</div>
                 <div className='justify-self-end font-bold text-gray-500'>${(price - (price * discountPercentage / 100)).toFixed(2)}</div>
                 <div className='justify-self-start text-gray-500'>{brand}</div>

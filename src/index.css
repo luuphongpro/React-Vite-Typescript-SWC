@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@custom-variant dark (&:where(.dark, .dark *));
 .active {
     @apply bg-blue-500 text-white;
 }
@@ -10,3 +10,4 @@
 .radius-li li:last-child {
     @apply rounded-r-sm
 }
+

@@ -1,0 +1,29 @@
+{
+    "header": {
+        "product": "Sản phẩm",
+        "login": "Đăng nhập",
+        "register": "Đăng ký",
+        "hello": "Xin chào",
+        "category": "Thể loại",
+        "allProduct": "Tất cả thể loại",
+        "search": "Tìm kiếm",
+        "language": "Ngôn ngữ",
+        "theme": "Chủ đề",
+        "cart": "Giỏ hàng",
+        "purchaseHistory":"Lịch sử mua hàng",
+        "logout": "Đăng xuất",
+        "typeToSearch":"Nhập để tìm kiếm",
+        "light": "Sáng",
+        "dark": "Tối"
+    },
+    "product": {
+        "seeDetail": "Xem chi tiết",
+        "bigSale": "Giảm giá",
+        "brand": "Thương hiệu",
+        "availability": "Tình trạng",
+        "tag": "Thẻ",
+        "buy": "Mua",
+        "stock": "Số lượng",
+        "description": "Mô tả"
+    }
+}

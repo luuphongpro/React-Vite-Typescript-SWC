@@ -21,50 +21,52 @@ const Cart = () => {
     }, 0).toFixed(2);
 
     return (
-        <div className="bg-gray-200 flex lg:flex-row sm:flex-col items-center justify-center gap-10 p-5 pb-40">
-            {listCart.length === 0 ? (
-                <p>Your cart is empty.</p>
-            ) : (
-                <>
-                    <div>
-                        <h1 className="text-xl font-bold py-2">CART</h1>
-                        <HeaderCart
-                            listCart={listCart}
-                            setListCart={setListCart}
-                            isSelectAll={isSelectAll}
-                            setIsSelectAll={setIsSelectAll}
-                            setActiveButton={setActiveButton}
-                        />
-
-                        {listCart.map((item: Itemcart, index) => (
-                            <ItemCart
-                                key={item.id}
-                                item={item}
-                                index={index}
+        <div className="min-h-screen lg:bg-gray-200 flex items-start justify-center dark:bg-gray-800">
+            <div className=" flex lg:flex-row flex-col items-center justify-center gap-10 p-20 bg-white lg:w-8/12 shadow-md shadow-white dark:bg-gray-700 dark:shadow-gray-600">
+                {listCart.length === 0 ? (
+                    <p>Your cart is empty.</p>
+                ) : (
+                    <>
+                        <div>
+                            <h1 className="text-xl font-bold py-2">CART</h1>
+                            <HeaderCart
                                 listCart={listCart}
                                 setListCart={setListCart}
+                                isSelectAll={isSelectAll}
                                 setIsSelectAll={setIsSelectAll}
                                 setActiveButton={setActiveButton}
                             />
-                        ))}
-                    </div>
-                    <div className="w-40 h-40 bg-white rounded-lg shadow-md flex flex-col items-center justify-center">
-                        <div>Order Total: {totalPrice}</div>
-                        <div className="flex justify-center py-5">
-                            <button
-                                className={"py-1.5 px-3 bg-blue-500 rounded-md cursor-pointer hover:bg-blue-400 w-20" + (activeButton ? "" : " disabled opacity-50")}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handlerOrder(id)
 
-                                }}
-                            >
-                                Buy
-                            </button>
+                            {listCart.map((item: Itemcart, index) => (
+                                <ItemCart
+                                    key={item.id}
+                                    item={item}
+                                    index={index}
+                                    listCart={listCart}
+                                    setListCart={setListCart}
+                                    setIsSelectAll={setIsSelectAll}
+                                    setActiveButton={setActiveButton}
+                                />
+                            ))}
                         </div>
-                    </div>
-                </>
-            )}
+                        <div className="w-40 h-40 bg-white dark:bg-gray-600 rounded-lg shadow-md flex flex-col items-center justify-center">
+                            <div>Order Total: {totalPrice}</div>
+                            <div className="flex justify-center py-5">
+                                <button
+                                    className={"py-1.5 px-3 bg-blue-500 rounded-md cursor-pointer hover:bg-blue-400 w-20" + (activeButton ? "" : " disabled opacity-50")}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handlerOrder(id)
+
+                                    }}
+                                >
+                                    Buy
+                                </button>
+                            </div>
+                        </div>
+                    </>
+                )}
+            </div>
         </div>
     );
 };

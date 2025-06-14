@@ -1,5 +1,6 @@
 import useProduceStore from '../src/store/useProductStore';
 import {numberOfPerPage} from '../src/config/setting'
+
 const usePagination = () => {
     const currentPage = useProduceStore((state) => state.currentPage);
     const data = useProduceStore((state) => state.data);

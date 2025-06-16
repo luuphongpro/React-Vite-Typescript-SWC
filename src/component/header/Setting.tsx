@@ -22,7 +22,7 @@ const Setting = () => {
                 onClick={() => setIsShowSetting(false)}
             ></div>
             }
-            <div className="size-10 flex justify-center items-center rounded-full hover:bg-gray-200 relative"
+            <div className="p-2 flex justify-center items-center rounded-full hover:bg-gray-200 relative"
                 onClick={() => setIsShowSetting(true)}
             >
                 <SettingOutlined />

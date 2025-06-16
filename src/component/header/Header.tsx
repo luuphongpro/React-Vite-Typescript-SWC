@@ -3,7 +3,7 @@ import Login from "../auth/Login";
 import useAuthStore from "../../store/useAuthStore";
 import { useNavigate } from "react-router-dom";
 import useCartStore from "../../store/useCartStore";
-import { Dropdown, Space, type MenuProps } from "antd";
+import { Dropdown, type MenuProps } from "antd";
 import Setting from "./Setting";
 import Category from "./Category";
 import Search from "./Search";
@@ -20,7 +20,7 @@ const Header = () => {
         },
         {
             key: '2',
-            label:  t('header.purchaseHistory'),
+            label: t('header.purchaseHistory'),
             onClick: () => navigate('/purchase'),
         },
         {
@@ -78,28 +78,31 @@ const Header = () => {
                                     <div className="relative cursor-pointer"
                                         onClick={() => navigate('/cart')}
                                     >
-                                        <span className=" bg-red-500 text-white font-bold bottom-5 left-3 px-2 py-1 rounded-4xl absolute text-xs">{listCart.length}</span>
+                                        <span className=" bg-red-500 text-white font-bold bottom-5 left-3 size-5 rounded-4xl absolute text-xs text-center">{listCart.length}</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width={30} height={30} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg>
                                     </div>
                                     <div className="flex flex-row">
                                         <a
                                             href="#"
-                                            className="flex items-center rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition group-hover:bg-teal-700"
+                                            className="justify-center flex rounded-md bg-teal-600 lg:min-w-30 py-2.5 text-sm font-medium text-white transition group-hover:bg-teal-700"
                                         >
                                             <Dropdown menu={{ items }}>
-                                                <a onClick={(e) => e.preventDefault()}>
-                                                    <Space>
-                                                        <span>{t('header.hello')} {firstName}</span>
-                                                        <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            className="ml-1 h-5 w-5"
-                                                            fill="none"
-                                                            viewBox="0 0 24 24"
-                                                            stroke="currentColor"
-                                                        >
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                                        </svg>
-                                                    </Space>
+                                                <a onClick={(e) => e.preventDefault()} className="flex flex-row">
+                                                    <span className="hidden lg:inline">
+                                                        {t('header.hello')} {firstName}
+                                                    </span>
+                                                    <span className="inline lg:hidden">
+                                                        {firstName}
+                                                    </span>
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        className="ml-1 h-5 w-5"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                    </svg>
                                                 </a>
                                             </Dropdown>
                                         </a>

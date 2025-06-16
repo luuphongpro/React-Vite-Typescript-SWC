@@ -1,13 +1,69 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
-.active {
-    @apply bg-blue-500 text-white;
+
+@theme {
+  --color-button-primary: theme('colors.teal.600');
+  --color-button-1: theme('colors.teal.700');
 }
+
+/* Định nghĩa CSS variables cho light/dark mode */
+:root {
+  /*cho background*/
+  --color-primary: #ffffff;
+  /*cho nội dung chính*/
+  --color-secondary: #ffffff;
+  /*cho text*/
+  --color-text-primary: #000000;
+  /* background pastel */
+  --color-pastel: #CFE1B9;
+  /* chữ pastel */
+  --color-text-pastel: #2E3B2F;
+}
+
+.dark {
+  --color-primary: #212121;
+  --color-secondary: #171717;
+  --color-text-primary: #ffffff;
+  --color-pastel: #2E3B2F;
+  --color-text-pastel: #CFE1B9;
+}
+
+/* Tạo utility classes để sử dụng */
+@layer utilities {
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+
+  .text-primary {
+    color: var(--color-text-primary);
+  }
+
+  .border-primary {
+    border-color: var(--color-text-primary);
+  }
+
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+
+  .bg-pastel {
+    background-color: var(--color-pastel);
+  }
+
+  .text-pastel {
+    color: var(--color-text-pastel);
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.active {
+  @apply bg-button-primary text-white;
+}
+
 .radius-li li:first-child {
-    @apply rounded-l-sm
+  @apply rounded-l-sm
 }
 
 .radius-li li:last-child {
-    @apply rounded-r-sm
+  @apply rounded-r-sm
 }
-

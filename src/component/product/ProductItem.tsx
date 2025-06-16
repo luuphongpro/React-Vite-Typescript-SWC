@@ -3,10 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from 'antd';
 import { useTranslation } from "react-i18next";
 
-interface ProductItemProps extends Product {
-    setShowSuccess: (show: boolean) => void;
-}
-const ProductItem = (props: ProductItemProps) => {
+const ProductItem = (props: Product) => {
     const { t } = useTranslation();
     const { id, title, thumbnail, price, discountPercentage, brand } = props;
     const navigator = useNavigate();

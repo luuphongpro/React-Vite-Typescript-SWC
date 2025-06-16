@@ -25,11 +25,10 @@ const useCartStore = create<CartState>((set, get) => ({
 
     handlerOrder: async () => {
         const { listCart, purchaseList, setListCart, setPurchaseList } = get();
-        const purchaseItems = listCart.filter((item) => item.isBuy);
-        const updatedList = listCart.filter((item) => !item.isBuy);
+        const purchaseItems = listCart;
         
         const newPurchaseList = [...purchaseList, purchaseItems];
-        setListCart(updatedList);
+        setListCart([]);
         setPurchaseList(newPurchaseList);
     },
 }));

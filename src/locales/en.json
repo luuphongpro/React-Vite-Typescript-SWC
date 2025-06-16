@@ -25,5 +25,15 @@
         "buy": "Buy",
         "stock": "Stock",
         "description":"Description"
+    },
+    "cart": {
+        "cart":"Cart",
+        "cartEmty":"Your cart is empty.",
+        "selectAll":"Select all",
+        "quantity":"Quantity",
+        "totalAmount":"Total amount",
+        "orderTotal": "Order Total",
+        "buy": "Buy"
+
     }
 }

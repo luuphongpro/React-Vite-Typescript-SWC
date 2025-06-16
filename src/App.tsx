@@ -14,12 +14,12 @@ function App() {
             ? antdTheme.darkAlgorithm
             : antdTheme.defaultAlgorithm,
         token: {
-          colorPrimary: '#1677ff',
+          colorPrimary: '#0d9488',
         },
 
       }}
     >
-      <div className="min-h-screen dark:bg-gray-900">
+      <div className="min-h-screen bg-secondary">
         <Header />
         <Outlet />
       </div>

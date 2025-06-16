@@ -1,14 +1,11 @@
 import ProductItem from "./ProductItem";
 import Pagination from "../Pagination";
-import Success from "../modal/Success";
-import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useProduce from "../../../hook/useProduct";
 import type { Product } from "../../types/product";
 
 const ProductContainer = () => {
     const [searchParams] = useSearchParams();
-    const [showSuccess, setShowSuccess] = useState(false);
     const category = searchParams.get("category");
     const keyword = searchParams.get("keyword");
     const page = parseInt(searchParams.get("page") || "1", 10);
@@ -16,7 +13,7 @@ const ProductContainer = () => {
     const { isLoading, data } = useProduce(category, keyword, page);
     return (
         <>
-            <div className="product-container flex flex-wrap w-5/6 mx-auto gap-5 bg-white dark:bg-gray-800 ">
+            <div className="product-container flex flex-wrap w-5/6 mx-auto gap-5 bg-primary dark:bg-gray-800 ">
                 {isLoading
                     ? Array.from({ length: 8 }).map((_, index) => (
                         <div
@@ -37,16 +34,11 @@ const ProductContainer = () => {
                         <ProductItem
                             key={product.id}
                             {...product}
-                            setShowSuccess={setShowSuccess}
                         />
                     ))}
             </div>
             <Pagination
 
-            />
-            <Success
-                showSuccess={showSuccess}
-                setShowSuccess={setShowSuccess}
             />
         </>
     );

@@ -25,5 +25,14 @@
         "buy": "Mua",
         "stock": "Số lượng",
         "description": "Mô tả"
+    },
+    "cart": {
+        "cart":"Giỏ hàng",
+        "cartEmty":"Giỏ hàng rỗng",
+        "selectAll":"Chọn tất cả",
+        "quantity":"Số lượng",
+        "totalAmount":"Thành tiền",
+        "orderTotal": "Tổng đơn hàng",
+        "buy": "Thanh toán"
     }
 }

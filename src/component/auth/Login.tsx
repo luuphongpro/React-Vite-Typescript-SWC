@@ -19,21 +19,21 @@ const Login = (props: Login) => {
     const handlePressPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value)
     }
-    const handleClickSubmitLogin =async (e:React.FormEvent<HTMLFormElement>) => {
+    const handleClickSubmitLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        const res=await fetchLogin(userName, password)
+        const res = await fetchLogin(userName, password)
         if (res) {
             setIsLogin(true)
             setShowLogin(false)
         }
-            
-        else 
+
+        else
             setIsLogin(false)
     }
     return (
         <>
             <div
-                className={showLogin ? " fixed inset-0 z-40 bg-black opacity-50 " : " hidden " }
+                className={showLogin ? " fixed inset-0 z-40 bg-black opacity-50 " : " hidden "}
                 onClick={() => handleClickClose()}
             ></div>
             <div className={(showLogin ? " opacity-100 " : " hidden ") + "overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full flex"} >
@@ -71,19 +71,10 @@ const Login = (props: Login) => {
                                         onChange={(event) => handlePressPassword(event)}
                                     />
                                 </div>
-                                <div className="flex justify-between">
-                                    <div className="flex items-start">
-                                        <div className="flex items-center h-5">
-                                            <input id="remember" type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
-                                        </div>
-                                        <label htmlFor="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
-                                    </div>
-                                    <a href="#" className="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
-                                </div>
                                 <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 
                                 >Login to your account</button>
-                                <div className={"text-red-600 font-bold text-center"+ (isLogin? ' hidden ': '  ')}>UserName or PassWord is incorrect!</div>
+                                <div className={"text-red-600 font-bold text-center" + (isLogin ? ' hidden ' : '  ')}>UserName or PassWord is incorrect!</div>
                                 <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
                                     Not registered? <a href="#" className="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
                                 </div>

@@ -17,6 +17,8 @@
   --color-pastel: #CFE1B9;
   /* chữ pastel */
   --color-text-pastel: #2E3B2F;
+  --color-shadow:0 4px 20px rgba(147, 51, 234, 0.2)
+
 }
 
 .dark {
@@ -51,6 +53,9 @@
 
   .text-pastel {
     color: var(--color-text-pastel);
+  }
+  .shadow-primary {
+    box-shadow: var(--color-shadow);
   }
 }
 

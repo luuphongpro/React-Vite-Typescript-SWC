@@ -11,7 +11,7 @@ const Pagination = React.memo(() => {
 
     const handleClickPagination = (page: number) => {
         searchParams.set("page", page.toString());
-        navigate(`/product?${searchParams.toString()}`);
+        navigate(`?${searchParams.toString()}`);
     };
 
     const totalPages = useProductStore((state) => state.totalPages);
@@ -34,10 +34,10 @@ const Pagination = React.memo(() => {
     }
 
     return (
-        <ul className="flex justify-center my-5 radius-li cursor-pointer">
+        <ul className="flex justify-center mt-5 radius-li cursor-pointer pb-10 text-primary" >
             <li
                 className={
-                    "px-3 py-1.5 border mx-0.5 border-gray-400" +
+                    "px-3 py-1.5 border mx-0.5 border-primary " +
                     (currentPage === 1
                         ? " pointer-events-none opacity-50 cursor-default"
                         : " cursor-pointer")
@@ -49,7 +49,7 @@ const Pagination = React.memo(() => {
             {items}
             <li
                 className={
-                    "px-3 py-1.5 border mx-0.5 border-gray-400" +
+                    "px-3 py-1.5 border mx-0.5 border-primary" +
                     (currentPage === totalPages
                         ? " pointer-events-none opacity-50 cursor-default"
                         : " cursor-pointer")

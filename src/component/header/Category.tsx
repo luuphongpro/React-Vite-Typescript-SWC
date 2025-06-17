@@ -29,12 +29,12 @@ const Category = () => {
             if (activeIndex > -1)
                 handleFilterCategory(categories[activeIndex].slug);
             else
-                navigate("/product")
+                navigate("")
         }
     };
     const handleFilterCategory = (slug: string) => {
         setIsShowCategory(false)
-        navigate(`/product?category=${slug}`);
+        navigate(`/?category=${slug}`);
     }
     return (
         <>
@@ -42,18 +42,18 @@ const Category = () => {
                 onClick={() => setIsShowCategory(false)}
             ></div>
             }
-            <li className="relative cursor-pointer">
-                <a className="text-gray-500 dark:text-white transition dark:hover:text-gray-300 hover:text-gray-600 flex items-center gap-1"
+            <li className="relative cursor-pointer mx-4">
+                <a className="text-gray-500 dark:text-white transition dark:hover:text-gray-300 hover:text-gray-600 flex items-center gap-1 font-medium block"
                     onClick={() => setIsShowCategory(true)}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-list"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l11 0" /><path d="M9 12l11 0" /><path d="M9 18l11 0" /><path d="M5 6l0 .01" /><path d="M5 12l0 .01" /><path d="M5 18l0 .01" /></svg>
-                    {t('header.category')}
+                    <span className="hidden md:block ">{t('header.category')}</span>
                 </a>
-                <div className={"absolute top-3 left-0 z-11  mt-2 w-48 bg-white dark:bg-gray-400 border border-gray-200 rounded-md shadow-lg " + (isShowCategory ? " inline " : " hidden ")}>
+                <div className={"absolute top-3 left-0 z-11  mt-2 w-48 bg-white dark:bg-gray-700 border border-gray-200 rounded-md shadow-lg " + (isShowCategory ? " inline " : " hidden ")}>
                     <ul className=" py-1">
                         <input
                             type="text"
-                            className="h-8 m-3 w-[85%] border px-2 rounded"
+                            className="h-8 m-3 w-[85%] border px-2 rounded text-primary"
                             placeholder={t('header.typeToSearch')}
                             value={searchCategory}
                             onChange={(e) => {
@@ -64,13 +64,18 @@ const Category = () => {
                             onFocus={() => setActiveIndex(-1)}
 
                         />
-                        <li >
+                        <li>
                             <a
-                                className={`block px-4 py-2 text-sm ${activeIndex === -1 ? "bg-gray-100 dark:bg-gray-700" : "text-gray-400 dark:text-gray-500"
-                                    } hover:bg-gray-200 dark:bg-gray-400`}
+                                className={`block px-4 py-2 text-sm transition-colors duration-200 cursor-pointer
+                                    ${activeIndex === -1
+                                        ? "bg-blue-500 text-white dark:bg-blue-600 dark:text-white font-medium"
+                                        : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                                    } 
+                                    hover:bg-blue-50 dark:hover:bg-gray-900
+                                    ${activeIndex === -1 ? "hover:bg-blue-600 dark:hover:bg-blue-700" : ""}`}
                                 onClick={() => {
                                     setIsShowCategory(false)
-                                    navigate("/product")
+                                    navigate("")
                                 }}
                             >
                                 {t('header.allProduct')}
@@ -79,8 +84,13 @@ const Category = () => {
                         {categories?.slice(0, 6).map((category: Category, index: number) => (
                             <li key={category.slug}>
                                 <a
-                                    className={`block px-4 py-2 text-sm ${activeIndex === index ? "bg-gray-100 dark:bg-gray-700" : "text-gray-400 dark:text-gray-500"
-                                        } hover:bg-gray-200 dark:bg-gray-400`}
+                                    className={`block px-4 py-2 text-sm transition-colors duration-200 cursor-pointer
+                                            ${activeIndex === index
+                                            ? "bg-blue-500 text-white dark:bg-blue-600 dark:text-white font-medium"
+                                            : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                                        } 
+                                        hover:bg-blue-50 dark:hover:bg-gray-900
+                                        ${activeIndex === index ? "hover:bg-blue-600 dark:hover:bg-blue-700" : ""}`}
                                     onClick={() => handleFilterCategory(category.slug)}
                                 >
                                     {category.name}

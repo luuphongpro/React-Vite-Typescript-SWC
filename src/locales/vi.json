@@ -14,7 +14,15 @@
         "logout": "Đăng xuất",
         "typeToSearch":"Nhập để tìm kiếm",
         "light": "Sáng",
-        "dark": "Tối"
+        "dark": "Tối",
+        "signUp": "Đăng nhập",
+        "close": "Đóng",
+        "userName": "Tên người dùng",
+        "passWord": "Mật khẩu",
+        "loginTo": "Đăng nhập",
+        "isIncrrect": "Tên đăng nhập hoặc mật khẩu không đúng!",
+        "notRegistered": "Chưa đăng ký?",
+        "createAccount":"Tạo tài khoản"
     },
     "product": {
         "seeDetail": "Xem chi tiết",
@@ -33,6 +41,24 @@
         "quantity":"Số lượng",
         "totalAmount":"Thành tiền",
         "orderTotal": "Tổng đơn hàng",
-        "buy": "Thanh toán"
+        "buy": "Thanh toán",
+        "deleteProduct": "Xóa product",
+        "confirmDelete": "Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng?",
+        "yes": "Đồng ý",
+        "no": "Không",
+        "subTotal" : "Thành tiền",
+        "shipping": "Vận chuyển",
+        "total": "Tổng cộng",
+        "includeVAT": "bao gồm VAT",
+        "checkOut": "Thanh toán"
+    },
+    "purchase": {
+        "title": "LỊCH SỬ MUA HÀNG",
+        "empty": "Bạn chưa từng mua hàng.",
+        "quantity": "Số lượng",
+        "price": "Giá",
+        "totalOrder":"Tổng đơn hàng",
+        "orderId":"Mã đơn hàng",
+        "orderDate":"Ngày đặt hàng"
     }
 }

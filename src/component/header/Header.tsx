@@ -14,11 +14,6 @@ const Header = () => {
 
     const items: MenuProps['items'] = [
         {
-            key: '1',
-            label: t('header.cart'),
-            onClick: () => navigate('/cart'),
-        },
-        {
             key: '2',
             label: t('header.purchaseHistory'),
             onClick: () => navigate('/purchase'),
@@ -41,14 +36,14 @@ const Header = () => {
     }
     return (
         <>
-            <header className=" dark:bg-gray-600 bg-background">
-                <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-1 items-center justify-end md:justify-between">
-                        <nav aria-label="Global" className="hidden md:block">
+            <header className="mb-10">
+                <div className="mx-auto flex h-16 w-full items-center gap-8 px-4 sm:px-6 lg:px-8 shadow shadow-primary bg-white dark:bg-gray-600 fixed top-0 right-0 left-0 z-40">
+                    <div className="flex flex-1 items-center justify-between">
+                        <nav aria-label="Global" className="">
                             <ul className="flex items-center gap-6 text-sm">
-                                <li className="cursor-pointer">
-                                    <a className="text-gray-500 dark:text-white dark:hover:text-gray-300 transition hover:text-gray-600"
-                                        onClick={() => navigate('/product')}
+                                <li className="cursor-pointer hidden md:block">
+                                    <a className="text-gray-500 dark:text-white dark:hover:text-gray-300 transition hover:text-gray-600 font-medium"
+                                        onClick={() => navigate('')}
                                     > {t('header.product')} </a>
                                 </li>
                                 <Category
@@ -58,16 +53,16 @@ const Header = () => {
                         <div className="flex items-center gap-4">
                             <Search />
                             {!isLogin ?
-                                <div className="sm:flex sm:gap-4">
+                                <div className="flex sm:gap-4">
                                     <a
-                                        className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
+                                        className="items-center flex justify-center lg:w-30 w-20 size-9 rounded-md bg-teal-600  text-xs lg:text-sm font-medium text-white transition group-hover:bg-teal-700"
                                         href="#"
                                         onClick={() => handleClickLogin()}
                                     >
                                         {t('header.login')}
                                     </a>
                                     <a
-                                        className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
+                                        className="hidden lg:flex justify-center items-center lg:w-30 w-20 rounded-md text-center text-xs bg-gray-100 lg:text-sm font-medium text-teal-600 transition hover:text-teal-600/75"
                                         href="#"
                                     >
                                         {t('header.register')}
@@ -78,16 +73,20 @@ const Header = () => {
                                     <div className="relative cursor-pointer"
                                         onClick={() => navigate('/cart')}
                                     >
-                                        <span className=" bg-red-500 text-white font-bold bottom-5 left-3 size-5 rounded-4xl absolute text-xs text-center">{listCart.length}</span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width={30} height={30} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg>
+                                        <span className=" bg-red-500 text-white font-semibold bottom-5 left-3 size-5 rounded-4xl absolute text-xs flex justify-center items-center">{listCart.length}</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width={30} height={30} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg>
                                     </div>
                                     <div className="flex flex-row">
                                         <a
-                                            href="#"
-                                            className="justify-center flex rounded-md bg-teal-600 lg:min-w-30 py-2.5 text-sm font-medium text-white transition group-hover:bg-teal-700"
+                                            className="justify-center cursor-pointer flex rounded-md bg-teal-600 lg:min-w-30 py-2 px-1 text-xs font-medium text-white transition group-hover:bg-teal-700"
                                         >
-                                            <Dropdown menu={{ items }}>
-                                                <a onClick={(e) => e.preventDefault()} className="flex flex-row">
+                                            <Dropdown
+                                                menu={{ items }}
+                                                trigger={['click']}
+                                                placement="bottomRight"
+                                                overlayStyle={{ zIndex: 9999 }}
+                                            >
+                                                <a className="flex flex-row">
                                                     <span className="hidden lg:inline">
                                                         {t('header.hello')} {firstName}
                                                     </span>
@@ -96,9 +95,9 @@ const Header = () => {
                                                     </span>
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
-                                                        className="ml-1 h-5 w-5"
+                                                        className="ml-1 h-4 w-4"
                                                         fill="none"
-                                                        viewBox="0 0 24 24"
+                                                        viewBox="0 0 22 24"
                                                         stroke="currentColor"
                                                     >
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />

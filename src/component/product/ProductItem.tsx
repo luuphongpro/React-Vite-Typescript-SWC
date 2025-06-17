@@ -2,16 +2,16 @@ import type { Product } from "../../types/product";
 import { useNavigate } from "react-router-dom";
 import { Button } from 'antd';
 import { useTranslation } from "react-i18next";
-
+import {formatCurrency} from '../../service/CurrencyFormatter'
 const ProductItem = (props: Product) => {
     const { t } = useTranslation();
     const { id, title, thumbnail, price, discountPercentage, brand } = props;
     const navigator = useNavigate();
     return (
-        <div className='sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)] min-h-69 flex flex-col justify-between gap-3 border border-gray-200 shadow-md p-5   rounded-lg' key={id}
+        <div className='w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.6rem)] flex flex-col justify-around border border-gray-200 shadow-md p-5 lg:rounded-lg rounded-md m-2' key={id}
         >
-            <div className='min-h-50 group relative  '
-                
+            <div className='min-h-50 group relative'
+                onClick={() => navigator(`${id}`)}
             >
                 <img
                     src={thumbnail}
@@ -23,7 +23,7 @@ const ProductItem = (props: Product) => {
 
                 >
                     <Button type="primary" className="cursor-pointer"
-                        onClick={() => navigator(`/product/${id}`)}
+                        
                     >{t('product.seeDetail')}</Button>
                 </div>
 
@@ -35,12 +35,12 @@ const ProductItem = (props: Product) => {
 
             </div>
 
-            <div className='grid [grid-template-columns:2fr_1fr] gap-2 dark:text-white/50'>
+            <div className='grid [grid-template-columns:2fr_1fr] gap-2 text-primary'>
                 <div className='justify-self-start font-bold'>{title}</div>
-                <div className='justify-self-end font-bold text-gray-500'>${(price - (price * discountPercentage / 100)).toFixed(2)}</div>
-                <div className='justify-self-start text-gray-500'>{brand}</div>
+                <div className='justify-self-end font-bold '>{formatCurrency((price - (price * discountPercentage / 100)))}</div>
+                <div className='justify-self-start '>{brand}</div>
                 {discountPercentage && (
-                    <div className='text-red-600 justify-self-end'><del>${price}</del></div>
+                    <div className='text-red-600 justify-self-end'><del>{formatCurrency(price)}</del></div>
                 )}
             </div>
         </div>

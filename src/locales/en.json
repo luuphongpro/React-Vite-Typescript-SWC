@@ -10,11 +10,19 @@
         "language": "Language",
         "theme": "Theme",
         "cart": "Cart",
-        "purchaseHistory":"Purchase History",
+        "purchaseHistory": "Purchase History",
         "logout": "Logout",
-        "typeToSearch":"Type To Search...",
+        "typeToSearch": "Type To Search...",
         "light": "Light",
-        "dark": "Dark"
+        "dark": "Dark",
+        "signUp": "Sign in to our platform",
+        "close": "Close modal",
+        "userName": "User name",
+        "passWord": "Your password",
+        "loginTo": "Login to your account",
+        "isIncrrect": "UserName or PassWord is incorrect!",
+        "notRegistered": "Not registered?",
+        "createAccount":"Create account"
     },
     "product": {
         "seeDetail": "See detail",
@@ -24,16 +32,33 @@
         "tag": "Tag",
         "buy": "Buy",
         "stock": "Stock",
-        "description":"Description"
+        "description": "Description"
     },
     "cart": {
-        "cart":"Cart",
-        "cartEmty":"Your cart is empty.",
-        "selectAll":"Select all",
-        "quantity":"Quantity",
-        "totalAmount":"Total amount",
+        "cart": "Cart",
+        "cartEmty": "Your cart is empty.",
+        "selectAll": "Select all",
+        "quantity": "Quantity",
+        "totalAmount": "Total amount",
         "orderTotal": "Order Total",
-        "buy": "Buy"
-
+        "buy": "Buy",
+        "deleteProduct": "Delete product",
+        "confirmDelete": "Are you sure to delete this product?",
+        "yes": "Yes",
+        "no": "No",
+        "subTotal" : "Subtotal",
+        "shipping": "Shipping",
+        "total": "Total",
+        "includeVAT": "include VAT",
+        "checkOut": "Check out"
+    },
+    "purchase": {
+        "title": "PURCHASE HISTORY",
+        "empty": "You haven't made a purchase yet.",
+        "quantity": "Quantity",
+        "price": "Price",
+        "totalOrder":"Total Order",
+        "orderId":"Order ID",
+        "orderDate":"Order Date"
     }
 }

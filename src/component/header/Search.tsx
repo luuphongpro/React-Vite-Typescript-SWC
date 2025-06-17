@@ -16,7 +16,7 @@ const Search = () => {
   },[searchParams])
   const handleSearch = (value: string) => {
     if (value.trim()) {
-      navigate(`/product?keyword=${value.trim()}`);
+      navigate(`?keyword=${value.trim()}`);
     }
   };
 

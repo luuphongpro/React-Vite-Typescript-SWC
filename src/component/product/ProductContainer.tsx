@@ -13,14 +13,14 @@ const ProductContainer = () => {
     const { isLoading, data } = useProduce(category, keyword, page);
     return (
         <>
-            <div className="product-container flex flex-wrap w-5/6 mx-auto gap-5 bg-primary dark:bg-gray-800 ">
+            <div className="product-container flex flex-wrap lg:w-11/12 w-full lg:mx-auto lg:gap-3 bg-primary pt-10">
                 {isLoading
                     ? Array.from({ length: 8 }).map((_, index) => (
                         <div
                             key={index}
-                            className="sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)] min-h-69 flex flex-col justify-between gap-3 border border-gray-200 shadow-md p-5 group cursor-pointer relative rounded-lg animate-pulse"
+                            className="w-full lg:w-[calc(25%-1rem)] flex flex-col justify-between gap-3 border border-gray-200 shadow-md p-5 group cursor-pointer relative rounded-lg animate-pulse"
                         >
-                            <div className="w-full h-80 bg-gray-200 dark:bg-gray-500 rounded-lg" >
+                            <div className="w-full h-50 bg-gray-200 dark:bg-gray-500 rounded-lg" >
                             </div>
                             <div className="grid [grid-template-columns:2fr_1fr] gap-2 mt-3">
                                 <div className="h-4 bg-gray-200 rounded w-3/4" />

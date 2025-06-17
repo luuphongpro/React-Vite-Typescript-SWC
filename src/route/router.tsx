@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "product",
+        path: "",
         element: <ProductContainer />,
       },
       {
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <Purchase />,
       },
       {
-        path: "product/:id", 
+        path: ":id", 
         element: <ProductDetail />,
       },
     ]

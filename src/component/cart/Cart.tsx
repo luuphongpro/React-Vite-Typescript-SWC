@@ -6,7 +6,7 @@ import { Button, Empty, Popconfirm, Rate } from "antd";
 import ChangeQuantity from "./ChangeQuantity";
 import { DeleteOutlined } from "@ant-design/icons";
 // ...
-import {formatCurrency } from '../../service/CurrencyFormatter'
+import { formatCurrency } from '../../service/CurrencyFormatter'
 import { useNavigate } from "react-router-dom";
 import Notify from '../modal/Notify';
 import { useState } from "react";
@@ -43,7 +43,7 @@ const Cart = () => {
                                     <div className="flex md:flex-row flex-col justify-between p-2">
                                         <div>
                                             <div className="font-bold cursor-pointer"
-                                                onClick={() =>navigator('/'+item.id)}
+                                                onClick={() => navigator('/' + item.id)}
                                             >{item.title}</div>
                                             <div>Brand: {item.brand}</div>
                                         </div>
@@ -110,7 +110,7 @@ const Cart = () => {
                             <hr />
                             <div className="flex flex-row justify-between my-2 font-bold">
                                 <div className="">{t('cart.total')}</div>
-                                <div>{formatCurrency((totalPrice+4.99))}</div>
+                                <div>{formatCurrency((totalPrice + 4.99))}</div>
                             </div>
                             <div className="ml-auto text-sm">{t('cart.includeVAT')}</div>
                         </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { fetchLogin } from "../../service/Auth";
 import { useTranslation } from "react-i18next";
+import { createPortal } from "react-dom";
 
 interface Login {
     showLogin: boolean;
@@ -32,13 +33,15 @@ const Login = (props: Login) => {
         else
             setIsLogin(false)
     }
-    return (
+    return createPortal(
         <>
             <div
-                className={showLogin ? " fixed inset-0 z-40 bg-black opacity-50 " : " hidden "}
+                className={`fixed inset-0 z-40 bg-black bg-opacity-50 transition-opacity duration-300 ${showLogin ? "opacity-50 visible" : "opacity-0 invisible"
+                    }`}
                 onClick={() => handleClickClose()}
             ></div>
-            <div className={(showLogin ? " opacity-100 " : " hidden ") + "overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full flex"} >
+            <div className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${showLogin ? "opacity-100 visible" : "opacity-0 invisible"
+                }`} >
                 <div className="relative p-4 w-full max-w-md max-h-full opacity-100">
 
                     <div className="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
@@ -85,7 +88,8 @@ const Login = (props: Login) => {
                     </div>
                 </div>
             </div>
-        </>
+        </>,
+        document.body
 
     )
 }
